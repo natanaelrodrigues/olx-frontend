@@ -14,3 +14,7 @@ export const doLogin = (token, rememberPassword= false) => {
   }
 
 }
+
+export const doLogout = () => {
+  Cookies.remove('token');
+}
