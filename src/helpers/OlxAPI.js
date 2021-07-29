@@ -41,10 +41,10 @@ const apiFetchGet = async (endpoint, body = []) => {
         if(token){
             body.token = token;
         }
-    }
-
-    const res = await fetch(`${BASEAPI+endpoint}?${qs.stringfy(body)}`);
-
+    };
+    
+    const res = await fetch(`${BASEAPI + endpoint}?${qs.stringify(body)}`);
+   
     const json = await res.json();
 
     if( json.notallowed) {
@@ -66,7 +66,22 @@ const OlxAPI = {
             {email, password}
         );
         return json;
-    }
+        },
+
+    register:async(name,email, password, stateLoc ) =>{
+        const json = await apiFetchPost(
+            '/user/signup',
+            {name,email, password, state: stateLoc}
+        );
+
+        return json;
+    },
+
+    getStates:async () => {
+        const json = await apiFetchGet('/states');
+
+        return json.states;
+    },
 };
 
 export default () => OlxAPI;
