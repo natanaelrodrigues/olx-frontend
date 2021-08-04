@@ -77,6 +77,25 @@ export const SearchArea = styled.div`
 `;
 
 export const PageArea = styled.div`
+    h2{
+        fonte-size:20px;
+    }
 
+    .list{
+        display:flex;
+        flex-wrap:wrap;
+
+        .aditem{
+            width: 25%;
+        }
+    }
+
+    .seeAllLink{
+        color:#000;
+        text-decoration:nome;
+        font-weight:bold;
+        display:inline-block;
+        margin-top:10px;
+    }
    
 `;
